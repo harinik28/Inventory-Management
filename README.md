@@ -1,7 +1,7 @@
 # Inventory Management 
 
 Project Overview
-This is a full-stack Inventory Management System built using HTML, CSS, Vanilla JavaScript, Node.js, Express.js, and MySQL. It allows users to manage products, purchase and sales bills, and track current stock levels with a user-friendly interface and smooth navigation.
+This is a full-stack Inventory Management System built using HTML, Bootstrap, Vanilla JavaScript, Node.js, Express.js, and MySQL. It allows users to manage products, purchase and sales bills, and track current stock levels with a user-friendly interface and smooth navigation.
 
 ## Features
 
@@ -35,7 +35,7 @@ The active page is clearly indicated with a specific visual effect for ease of u
 
 ## Technologies Used
 
-**Frontend**: HTML, CSS, Vanilla JavaScript
+**Frontend**: HTML, Bootstrap, Vanilla JavaScript
 
 **Backend**: Node.js, Express.js
 
