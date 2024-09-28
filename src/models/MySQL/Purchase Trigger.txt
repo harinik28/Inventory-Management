@@ -1,0 +1,52 @@
+DELIMITER $$
+
+CREATE TRIGGER after_purchase_insert
+AFTER INSERT ON purchase
+FOR EACH ROW
+BEGIN
+    -- Check if the product already exists in the stock table
+    IF EXISTS (SELECT 1 FROM stock WHERE product = NEW.product) THEN
+        -- If the product exists, increase the stock by the quantity purchased
+        UPDATE stock
+        SET stock = stock + NEW.quantity
+        WHERE product = NEW.product;
+    ELSE
+        -- If the product doesn't exist, insert it into the stock table
+        INSERT INTO stock (product, stock)
+        VALUES (NEW.product, NEW.quantity);
+    END IF;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_purchase_update
+AFTER UPDATE ON purchase
+FOR EACH ROW
+BEGIN
+    -- Update the stock based on the difference between the old and new quantity
+    UPDATE stock
+    SET stock = stock + (NEW.quantity - OLD.quantity)
+    WHERE product = NEW.product;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_purchase_delete
+AFTER DELETE ON purchase
+FOR EACH ROW
+BEGIN
+    -- When a purchase is deleted, reduce the stock by the quantity purchased
+    UPDATE stock
+    SET stock = stock - OLD.quantity
+    WHERE product = OLD.product;
+END $$
+
+DELIMITER ;

@@ -1,0 +1,65 @@
+create database techveel;
+use techveel;
+
+PRODUCT TABLE:
+
+create table products(
+id bigint primary key auto_increment,
+name varchar(30) not null,
+category varchar(30) not null,
+brand varchar(40) not null
+)auto_increment=101;
+
+select * from products;
+
+insert into products (name , category ,brand) values('laptop' , 'electronics' , 'hp');
+
+SALES TABLE:
+
+CREATE TABLE sales (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,  
+    product VARCHAR(30),
+    quantity INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    total DECIMAL(10, 2) AS (quantity * amount) STORED
+) AUTO_INCREMENT=1001;
+
+insert into sales (product , quantity ,amount) values('laptop' , '10' , '60000');
+
+
+select * from sales;
+
+PURCHASE TABLE:
+
+CREATE TABLE purchase (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,  
+    product VARCHAR(30),
+    quantity INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    total DECIMAL(10, 2) AS (quantity * amount) STORED
+) AUTO_INCREMENT=3001;
+
+insert into purchase (product , quantity ,amount) values('laptop' , '20' , '55000');
+
+select * from purchase;
+
+STOCK TABLE:
+
+CREATE TABLE stock (
+    product VARCHAR(30) primary key,
+    stock INT NOT NULL
+);
+
+select * from stock;
+
+
+
+
+
+
+
+
+
+
+
+

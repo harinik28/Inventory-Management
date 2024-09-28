@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+:root{
+    --body-color:#fff;
+    --sidebar-color:#FFF;
+    --primary-color:#695CFE;
+    --primary-light-color:#F6F5ff;
+    --toggle-color: #DDD;
+    --text-color: #5c5b5b;
+
+    --tran-02:all 0.2s ease ;
+    --tran-03:all 0.3s ease ;
+    --tran-04:all 0.4s ease ;
+    --tran-05:all 0.5s ease ;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+body{
+    background: var(--body-color);
+}
+header{
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header hr{
+    display: inline;
+    flex-grow: 1 ;
+    padding: 0 20px ;
+    color: grey;
+}
+header p{
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 50px;
+    outline: 5px solid var(--body-color);
+    background: var(--primary-color);
+    color: var(--sidebar-color);
+    margin: 5px;
+    font-size: 1.2rem;
+}
+.details{
+    flex-wrap: wrap;
+}
+.details .input-group{
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 400px;
+}
+.details input{
+    border: solid 3px var(--text-color);
+}
+.empty{
+    animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink{
+    0%,100%{
+        box-shadow: 0px 0px 3px 2px lightcoral;
+        border-color: lightcoral;
+        outline: none;
+    }
+}
+.btn.submit{
+    background: var(--primary-color);
+    color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+.btn.submit:hover{
+    background: #5348c8;
+    color: var(--sidebar-color);
+}

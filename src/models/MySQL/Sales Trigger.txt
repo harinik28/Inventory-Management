@@ -1,0 +1,51 @@
+DELIMITER $$
+
+CREATE TRIGGER after_sales_insert
+AFTER INSERT ON sales
+FOR EACH ROW
+BEGIN
+    -- Check if the product exists in the stock table
+    IF EXISTS (SELECT 1 FROM stock WHERE product = NEW.product) THEN
+        -- If the product exists, decrease the stock by the quantity sold
+        UPDATE stock
+        SET stock = stock - NEW.quantity
+        WHERE product = NEW.product;
+    ELSE
+        -- If the product doesn't exist in stock, you may want to raise an error or insert it with a negative stock
+        INSERT INTO stock (product, stock)
+        VALUES (NEW.product, -NEW.quantity);
+    END IF;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_sales_update
+AFTER UPDATE ON sales
+FOR EACH ROW
+BEGIN
+    -- Update the stock based on the difference between the old and new quantity
+    UPDATE stock
+    SET stock = stock - (NEW.quantity - OLD.quantity)
+    WHERE product = NEW.product;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_sales_delete
+AFTER DELETE ON sales
+FOR EACH ROW
+BEGIN
+    -- When a sale is deleted, increase the stock by the quantity sold
+    UPDATE stock
+    SET stock = stock + OLD.quantity
+    WHERE product = OLD.product;
+END $$
+
+DELIMITER ;
