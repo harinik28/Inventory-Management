@@ -13,15 +13,15 @@ All products are stored in the Product Master table.
 
 ### 2. Bills
 
-**Contains two sections:**
-
-**Purchase Bills:** Captures purchase ID, product name, quantity, amount, and total.
+- **Purchase Bills:**
+  - Captures purchase ID, product name, quantity, amount, and total.
 The product names are fetched from the Product Master table and displayed as a dropdown.
 
-**Sales Bills:** Captures sales ID, product name, quantity, amount, and total.
+- **Sales Bills:**
+  - Captures sales ID, product name, quantity, amount, and total.
 The product names are fetched from the Purchase Bills table and displayed as a dropdown.
 
-Inputs for both bills are received through forms.
+- Inputs for both bills are received through forms.
 
 ### 3. Stock
    
@@ -35,19 +35,19 @@ The active page is clearly indicated with a specific visual effect for ease of u
 
 ## Technologies Used
 
-**Frontend**: HTML, Bootstrap, Vanilla JavaScript
+- **Frontend**: HTML, Bootstrap, Vanilla JavaScript
 
-**Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js
 
-**Database**: MySQL
+- **Database**: MySQL
 
 ## Setup Instructions:
 
 To run this project locally, follow these steps:
 
 ### Copy code
-
-npm install
+      ```bash 
+      npm install
 
 ### Set up your MySQL database:
 
@@ -55,8 +55,8 @@ Create the required database and tables for Product Master, Bills, and Stock.
 Update the database configuration in the project.
 
 ### Run the project:
-
-npm start
+      ```bash
+      npm start
 
 
 ## Screenshots
