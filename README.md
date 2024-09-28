@@ -46,7 +46,7 @@ The active page is clearly indicated with a specific visual effect for ease of u
 To run this project locally, follow these steps:
 
 ### Copy code
-      ```bash 
+    ```
       npm install
 
 ### Set up your MySQL database:
@@ -55,7 +55,7 @@ Create the required database and tables for Product Master, Bills, and Stock.
 Update the database configuration in the project.
 
 ### Run the project:
-      ```bash
+      ```
       npm start
 
 
