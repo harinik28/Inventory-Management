@@ -115,8 +115,8 @@ async function postdata() {
                 <td>${res_data.insertId}</td>
                 <td class="text-capitalize">${product}</td>
                 <td>${quantity}</td>
-                <td>${amount}</td>
-                <td>${total}</td> 
+                <td>${parseFloat(amount).toFixed(2)}</td>
+                <td>${parseFloat(total).toFixed(2)}</td>
                 <td class="d-flex justify-content-center gap-2">
                     <button class="btn btn-sm btn-success" onclick="editdata(${res_data.insertId},'${product}','${quantity}','${amount}')">Edit</button>
                     <button class="btn btn-sm btn-danger" onclick="deletedata(${res_data.insertId})">Delete</button>
@@ -231,8 +231,8 @@ async function updatedata() {
             <td>${currentsalesId}</td>
             <td>${product}</td>
             <td>${quantity}</td>
-            <td>${amount}</td>
-            <td>${total}</td>
+            <td>${parseFloat(amount).toFixed(2)}</td>
+            <td>${parseFloat(total).toFixed(2)}</td>
             <td class="d-flex justify-content-center gap-2">
                 <button class="btn btn-sm btn-success" onclick="editdata(${currentsalesId},'${product}','${quantity}','${amount}')">Edit</button>
                 <button class="btn btn-sm btn-danger" onclick="deletedata(${currentsalesId})">Delete</button>
