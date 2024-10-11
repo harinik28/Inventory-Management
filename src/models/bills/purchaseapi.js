@@ -4,7 +4,7 @@ const sql = {
     host: 'localhost',
     port: 3306,
     user:'root',
-    password: 'MINgi23@',
+    password: 'your password',
     database : 'techveel'
 }
 
